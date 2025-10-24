@@ -4,15 +4,14 @@ import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
-// Define props type manually (no PageProps)
-type Props = {
-  searchParams?: {
-    query?: string;
-  };
-};
-
-export default async function Home({ searchParams }: Props) {
-  const query = searchParams?.query || "";
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: Promise<{ query?: string }>;  // Updated: Now a Promise
+}) {
+  // Await searchParams to resolve it
+  const resolvedParams = await searchParams;
+  const query = resolvedParams?.query || "";
   const params = { search: query || null };
 
   const session = await auth();
@@ -30,7 +29,7 @@ export default async function Home({ searchParams }: Props) {
           </h1>
 
           <p className="sub-heading !max-w-3xl mx-auto text-base md:text-lg px-4">
-            Publish blogs, explore trending ideas, and join a community of tech enthusiasts.
+           Publish blogs, explore trending ideas, and join a community of tech enthusiasts and creators.
           </p>
 
           <SearchForm query={query} />
@@ -51,7 +50,7 @@ export default async function Home({ searchParams }: Props) {
         <ul className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts?.length > 0 ? (
             posts.map((post: StartupTypeCard) => (
-              <StartupCard key={post._id} post={post} />
+              <StartupCard key={post?._id} post={post} />
             ))
           ) : (
             <div className="no-results col-span-full">
