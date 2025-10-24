@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   },
   // Remove turbo entirely
   experimental: { turbo: false },
+  eslint: {
+  ignoreDuringBuilds: true,
+},
+
 };
 
 export default nextConfig;

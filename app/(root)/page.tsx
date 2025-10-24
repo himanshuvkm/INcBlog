@@ -24,11 +24,10 @@ export default async function Home({
           <h1 className="heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
             Share Your Tech Insights, <br />
             Connect With Innovators
-
           </h1>
 
           <p className="sub-heading !max-w-3xl mx-auto text-base md:text-lg px-4">
-           Publish blogs, explore trending ideas, and join a community of tech enthusiasts .
+            Publish blogs, explore trending ideas, and join a community of tech enthusiasts.
           </p>
 
           <SearchForm query={query} />
@@ -39,7 +38,8 @@ export default async function Home({
         <h2 className="text-30-semibold text-2xl md:text-3xl font-bold mb-7">
           {query ? (
             <>
-              Search results for <span className="text-primary">"{query}"</span>
+              Search results for{" "}
+              <span className="text-primary">{"\"" + query + "\""}</span>
             </>
           ) : (
             "Latest Articles"
@@ -49,7 +49,7 @@ export default async function Home({
         <ul className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts?.length > 0 ? (
             posts.map((post: StartupTypeCard) => (
-              <StartupCard key={post?._id} post={post} />
+              <StartupCard key={post._id} post={post} />
             ))
           ) : (
             <div className="no-results col-span-full">
