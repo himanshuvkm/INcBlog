@@ -52,8 +52,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         {/* Startups Section */}
         <div className="mt-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-30-bold text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-              {session?.id === id ? "Your" : `${user.name}'s`} Blogs
+            <h2 className="text-30-bold text-2xl md:text-3xl font-bold text-gray-900 tracking-tight"> 
+              {session?.user?.id === id ? "Your" : `${user.name}'s`} Blogs
             </h2>
           </div>
           

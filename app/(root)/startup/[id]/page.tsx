@@ -10,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import markdownit from "markdown-it";
+
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
