@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<a name="readme-top"></a>
 
-## Getting Started
+INcBlog 🚀
 
-First, run the development server:
+Empowering Founders, Sharing Insights: Your Platform for Startup Stories.
 
-```bash
+
+[![GitHub license](https://img.shields.io/github/license/himanshuvkm/INcBlog?style=flat-square)](https://github.com/himanshuvkm/INcBlog/blob/main/LICENSE)
+[![GitHub top language](https://img.shields.io/github/languages/top/himanshuvkm/INcBlog?style=flat-square)](https://github.com/himanshuvkm/INcBlog)
+[![GitHub Stars](https://img.shields.io/github/stars/himanshuvkm/INcBlog?style=social)](https://github.com/himanshuvkm/INcBlog/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/himanshuvkm/INcBlog?style=social)](https://github.com/himanshuvkm/INcBlog/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/himanshuvkm/INcBlog?style=flat-square)](https://github.com/himanshuvkm/INcBlog/issues)
+[![Deployment Status](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com/himanshuvkm/INcBlog) <!-- Placeholder for Vercel deployment, common for Next.js projects -->
+
+---
+
+
+
+📖 Description
+
+INcBlog is a dynamic, community-driven platform for founders and startup enthusiasts to share their journeys, insights, and lessons learned. Built with modern web technologies, it enables users to create compelling content, manage profiles, and connect with like-minded individuals.
+
+Whether you want to highlight your startup, share entrepreneurial advice, or engage with the startup community, INcBlog provides the perfect platform.
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+✨ Key Features
+
+✍️ Content Creation: User-friendly editor for crafting and publishing posts.
+
+🔐 Authentication: Secure login via NextAuth.js with multiple providers.
+
+👤 User Profiles: Personalized profiles showcasing contributions and startups.
+
+🚀 Startup Pages: Dedicated pages for startups and founders.
+
+🔍 Content Studio/Admin Panel: Manage content efficiently (e.g., via Sanity Studio).
+
+🎨 Responsive UI: Modern, mobile-friendly design with Tailwind CSS.
+
+📊 Error Tracking: Sentry integration for proactive monitoring.
+
+📏 Type-safe Development: Built with TypeScript for maintainability.
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+🛠️ Tech Stack
+Frontend
+
+Next.js, React, TypeScript
+
+Tailwind CSS, Shadcn/ui, Google Fonts (Work Sans)
+
+Backend
+
+Next.js API Routes, Node.js
+
+NextAuth.js for authentication
+
+Database (choose one)
+
+Prisma ORM / Mongoose ODM
+
+PostgreSQL / MongoDB
+
+Tools & Services
+
+Sentry for monitoring
+
+ESLint & Prettier for code quality
+
+Vercel for deployment
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+🚀 Getting Started
+Prerequisites
+
+Node.js v18+
+
+npm, yarn, or pnpm
+
+Git
+
+Installation
+git clone https://github.com/himanshuvkm/INcBlog.git
+cd INcBlog
+npm install
+
+Environment Variables
+
+Create .env.local:
+
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="GENERATE_WITH_OPENSSL"
+DATABASE_URL="YOUR_DATABASE_URL"
+SENTRY_DSN="YOUR_SENTRY_DSN"
+GITHUB_ID="YOUR_GITHUB_CLIENT_ID"
+GITHUB_SECRET="YOUR_GITHUB_CLIENT_SECRET"
+GOOGLE_CLIENT_ID="YOUR_GOOGLE_CLIENT_ID"
+GOOGLE_CLIENT_SECRET="YOUR_GOOGLE_CLIENT_SECRET"
+
+Running Locally
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Building for Production
+npm run build
+npm start
 
-## Learn More
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+📁 Project Structure
+app/
+├─ (root)/layout.tsx          # Main layout
+├─ page.tsx                   # Homepage
+├─ startup/[id]/page.tsx      # Startup detail page
+├─ startup/create/page.tsx    # Create startup post
+├─ user/[id]/page.tsx         # User profile
+├─ studio/[[...tool]]/page.tsx# CMS studio
+├─ api/auth/[...nextauth]/route.ts
+├─ globals.css
+components/                    # Reusable UI components
+auth.ts                        # NextAuth.js configuration
+components.json                # Shadcn/ui config
 
-To learn more about Next.js, take a look at the following resources:
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fork the repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a branch (git checkout -b feature/xyz)
 
-## Deploy on Vercel
+Make changes and commit (git commit -m "feat: ...")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push and open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Code Style:
+
+npm run lint
+npm run format
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+🆘 Troubleshooting
+
+Env variables not loading: Ensure .env.local exists and server restarted.
+
+Auth issues: Verify OAuth credentials and NEXTAUTH_URL.
+
+Database errors: Confirm DATABASE_URL and migrations (if Prisma).
+
+Studio blank: Ensure CMS is configured (Sanity or custom).
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
+📄 License
+
+MIT License — see LICENSE
+
+👥 Author
+
+Himanshu V.K.M — @himanshuvkm
+
+⭐ Star the repo if you find it useful!
+🍴 Fork to contribute!
