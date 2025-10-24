@@ -7,11 +7,11 @@ import { auth } from "@/auth";
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: Promise<{ query?: string }>;  // Updated: Now a Promise
+  searchParams: Promise<{ query?: string }>;  // Updated: Now a Promise
 }) {
   // Await searchParams to resolve it
   const resolvedParams = await searchParams;
-  const query = resolvedParams?.query || "";
+  const query = resolvedParams?.query ;
   const params = { search: query || null };
 
   const session = await auth();
