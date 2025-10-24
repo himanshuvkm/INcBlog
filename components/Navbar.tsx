@@ -1,10 +1,21 @@
 import Link from "next/link";
-import Image from "next/image";
+import NextAuth from "next-auth";
+
+
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
+declare module "next-auth" {
+  interface Session {
+    id?: string;
+  }
+
+  interface JWT {
+    id?: string;
+  }
+}
 const Navbar = async () => {
   const session = await auth();
   console.log(session);
