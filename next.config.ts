@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Remove turbo entirely
-  experimental: {},
+  experimental: { turbo: false },
 };
 
 export default nextConfig;
