@@ -4,11 +4,11 @@ import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
-export default async function Home({
-  searchParams,
-}: {
+interface Props {
   searchParams?: { query?: string };
-}) {
+}
+
+export default async function Home({ searchParams }: Props) {
   const query = searchParams?.query || "";
   const params = { search: query || null };
 
