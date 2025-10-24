@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Remove turbo entirely
-  experimental: { turbo: false },
+  experimental: { },
   eslint: {
   ignoreDuringBuilds: true,
 },
