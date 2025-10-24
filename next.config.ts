@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    turbo: false,
-  },
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
@@ -13,8 +11,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.sanity.io" },
     ],
   },
-  // optional: strict mode
-  reactStrictMode: true,
+  // Remove turbo entirely
+  experimental: {},
 };
 
 export default nextConfig;
