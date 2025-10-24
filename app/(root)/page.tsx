@@ -1,21 +1,17 @@
-export const dynamic = "force-dynamic"; // ensures fresh data + fixes Vercel deploy
-
 import SearchForm from "@/components/SearchForm";
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams?: { query?: string };
-}) {
+export default async function Home({ searchParams }: { searchParams?: { query?: string } }) {
   const query = searchParams?.query || "";
   const params = { search: query || null };
 
   const session = await auth();
-  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
+
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params, });
+
 
   return (
     <>
@@ -27,7 +23,7 @@ export default async function Home({
           </h1>
 
           <p className="sub-heading !max-w-3xl mx-auto text-base md:text-lg px-4">
-            Publish blogs, explore trending ideas, and join a community of tech enthusiasts and creators.
+           Publish blogs, explore trending ideas, and join a community of tech enthusiasts and creators.
           </p>
 
           <SearchForm query={query} />
@@ -55,12 +51,12 @@ export default async function Home({
               <div className="max-w-lg mx-auto text-center py-16 px-8">
                 <div className="text-6xl mb-5">🔍</div>
                 <p className="text-2xl font-bold text-gray-800 mb-3">
-                  No blogs found
+                  No startups found
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
                   {query
-                    ? "Try adjusting your search or explore all posts."
-                    : "Be the first to share your insights!"}
+                    ? "Try adjusting your search or explore all pitches."
+                    : "Be the first to share your innovative idea!"}
                 </p>
               </div>
             </div>
