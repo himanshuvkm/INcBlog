@@ -37,12 +37,15 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
-      <section className="pink_container !min-h-[230px] flex flex-col justify-center px-4 md:px-8 lg:px-12">
-        <p className="tag text-sm text-muted-foreground mb-2">{formatDate(post?._createdAt)}</p>
+      <section className="pink_container !min-h-[230px] flex flex-col justify-center items-center text-center px-4 md:px-8 lg:px-12">
+        <p className="tag text-sm text-muted-foreground mb-2">
+          {formatDate(post?._createdAt)}
+        </p>
 
         <h1 className="heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
           {post.title}
         </h1>
+
         <p className="sub-heading !max-w-5xl text-lg md:text-xl text-muted-foreground leading-relaxed">
           {post.description}
         </p>
@@ -86,14 +89,18 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-30-bold text-2xl md:text-3xl font-bold">Pitch Details</h3>
+            <h3 className="text-30-bold text-2xl md:text-3xl font-bold">
+              Pitch Details
+            </h3>
             {parsedContent ? (
               <article
                 className="prose max-w-4xl font-work-sans break-all prose-headings:text-foreground prose-a:text-primary prose-strong:font-semibold prose-img:rounded-lg prose-img:shadow-md"
                 dangerouslySetInnerHTML={{ __html: parsedContent }}
               />
             ) : (
-              <p className="no-result text-muted-foreground italic">No details provided</p>
+              <p className="no-result text-muted-foreground italic">
+                No details provided
+              </p>
             )}
           </div>
         </div>
@@ -102,7 +109,9 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         {editorPosts?.length > 0 && (
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-30-semibold text-2xl md:text-3xl font-semibold mb-7">Editor Picks</h2>
+            <h2 className="text-30-semibold text-2xl md:text-3xl font-semibold mb-7">
+              Editor Picks
+            </h2>
 
             <ul className="mt-7 card_grid-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {editorPosts.map((post: StartupTypeCard, i: number) => (
@@ -112,7 +121,11 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
         )}
 
-        <Suspense fallback={<Skeleton className="view_skeleton h-12 w-full md:w-96 mx-auto" />}>
+        <Suspense
+          fallback={
+            <Skeleton className="view_skeleton h-12 w-full md:w-96 mx-auto" />
+          }
+        >
           <View id={id} />
         </Suspense>
       </section>

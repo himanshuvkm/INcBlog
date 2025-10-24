@@ -7,15 +7,13 @@ import { auth } from "@/auth";
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: Promise<{ query?: string }>;  // Updated: Now a Promise
+  searchParams?: { query?: string };
 }) {
-  // Await searchParams to resolve it
-  const resolvedParams = await searchParams;
-  const query = resolvedParams?.query || "";
+  const query = searchParams?.query || "";
   const params = { search: query || null };
 
   const session = await auth();
-
+  
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
@@ -26,6 +24,7 @@ export default async function Home({
           <h1 className="heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
             Share Your Tech Insights, <br />
             Connect With Innovators
+
           </h1>
 
           <p className="sub-heading !max-w-3xl mx-auto text-base md:text-lg px-4">
