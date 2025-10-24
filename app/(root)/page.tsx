@@ -4,7 +4,7 @@ import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
-// Define props type manually
+// Define props type manually (no PageProps)
 type Props = {
   searchParams?: {
     query?: string;
