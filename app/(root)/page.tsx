@@ -1,15 +1,12 @@
+import { PageProps } from "next/types";
 import SearchForm from "@/components/SearchForm";
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
-interface Props {
-  searchParams?: { query?: string };
-}
-
-export default async function Home({ searchParams }: Props) {
-  const query = searchParams?.query || "";
+export default async function Home({ searchParams }: PageProps) {
+  const query = searchParams?.query as string | undefined || "";
   const params = { search: query || null };
 
   const session = await auth();
@@ -38,8 +35,7 @@ export default async function Home({ searchParams }: Props) {
         <h2 className="text-30-semibold text-2xl md:text-3xl font-bold mb-7">
           {query ? (
             <>
-              Search results for{" "}
-              <span className="text-primary">{"\"" + query + "\""}</span>
+              Search results for <span className="text-primary">"{query}"</span>
             </>
           ) : (
             "Latest Articles"
